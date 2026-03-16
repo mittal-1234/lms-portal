@@ -1,0 +1,77 @@
+export const mockCourses = [
+  {
+    id: 'cs-101',
+    title: 'Introduction to Computer Science',
+    provider: 'Lumina Tech',
+    university: 'Harvard University',
+    instructor: 'Dr. David Malan',
+    category: 'Computer Science',
+    duration: '12 weeks',
+    level: 'Beginner',
+    rating: 4.9,
+    enrolled: 4500000,
+    gradient: 'linear-gradient(135deg, #ef4444, #f97316)'
+  },
+  {
+    id: 'ml-first',
+    title: 'Machine Learning Specialization',
+    provider: 'DeepLearning.AI',
+    university: 'Stanford University',
+    instructor: 'Andrew Ng',
+    category: 'Data Science',
+    duration: '3 months',
+    level: 'Intermediate',
+    rating: 4.8,
+    enrolled: 1200000,
+    gradient: 'linear-gradient(135deg, #3b82f6, #06b6d4)'
+  },
+  {
+    id: 'ux-design',
+    title: 'Google UX Design Professional Certificate',
+    provider: 'Google',
+    instructor: 'Google UX Designers',
+    category: 'Design',
+    duration: '6 months',
+    level: 'Beginner',
+    rating: 4.8,
+    enrolled: 850000,
+    gradient: 'linear-gradient(135deg, #10b981, #3b82f6)'
+  },
+  {
+    id: 'quantum-computing',
+    title: 'Introduction to Quantum Computing',
+    provider: 'IBM',
+    instructor: 'Dr. Sarah Chen',
+    category: 'Computer Science',
+    duration: '8 weeks',
+    level: 'Advanced',
+    rating: 4.7,
+    enrolled: 244932,
+    gradient: 'linear-gradient(135deg, #a855f7, #ec4899)'
+  },
+  {
+    id: 'bus-strat',
+    title: 'Business Strategy and Operations',
+    provider: 'Wharton',
+    university: 'University of Pennsylvania',
+    instructor: 'Prof. Michael Roberts',
+    category: 'Business',
+    duration: '4 weeks',
+    level: 'Intermediate',
+    rating: 4.6,
+    enrolled: 320000,
+    gradient: 'linear-gradient(135deg, #f59e0b, #ef4444)'
+  },
+  {
+    id: 'full-stack',
+    title: 'Meta Front-End Developer',
+    provider: 'Meta',
+    instructor: 'Meta Engineers',
+    category: 'Computer Science',
+    duration: '7 months',
+    level: 'Beginner',
+    rating: 4.7,
+    enrolled: 950000,
+    gradient: 'linear-gradient(135deg, #0ea5e9, #6366f1)'
+  }
+];
