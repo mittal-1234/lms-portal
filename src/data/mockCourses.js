@@ -10,7 +10,8 @@ export const mockCourses = [
     level: 'Beginner',
     rating: 4.9,
     enrolled: 4500000,
-    gradient: 'linear-gradient(135deg, #ef4444, #f97316)'
+    gradient: 'linear-gradient(135deg, #ef4444, #f97316)',
+    videoEmbedId: 'M7lc1UVf-VE' // Random Google Developers video
   },
   {
     id: 'ml-first',
@@ -23,7 +24,8 @@ export const mockCourses = [
     level: 'Intermediate',
     rating: 4.8,
     enrolled: 1200000,
-    gradient: 'linear-gradient(135deg, #3b82f6, #06b6d4)'
+    gradient: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
+    videoEmbedId: 'jGwO_UgTS7I' // Andrew Ng Machine Learning
   },
   {
     id: 'ux-design',
@@ -35,7 +37,8 @@ export const mockCourses = [
     level: 'Beginner',
     rating: 4.8,
     enrolled: 850000,
-    gradient: 'linear-gradient(135deg, #10b981, #3b82f6)'
+    gradient: 'linear-gradient(135deg, #10b981, #3b82f6)',
+    videoEmbedId: 'v8y8F6m930E' // UX Design video
   },
   {
     id: 'quantum-computing',
@@ -47,7 +50,8 @@ export const mockCourses = [
     level: 'Advanced',
     rating: 4.7,
     enrolled: 244932,
-    gradient: 'linear-gradient(135deg, #a855f7, #ec4899)'
+    gradient: 'linear-gradient(135deg, #a855f7, #ec4899)',
+    videoEmbedId: 'OWJCfOvochA' // Quantum computing intro
   },
   {
     id: 'bus-strat',
@@ -60,7 +64,8 @@ export const mockCourses = [
     level: 'Intermediate',
     rating: 4.6,
     enrolled: 320000,
-    gradient: 'linear-gradient(135deg, #f59e0b, #ef4444)'
+    gradient: 'linear-gradient(135deg, #f59e0b, #ef4444)',
+    videoEmbedId: 'i1LzH2v40gQ' // Business strategy snippet 
   },
   {
     id: 'full-stack',
@@ -72,6 +77,7 @@ export const mockCourses = [
     level: 'Beginner',
     rating: 4.7,
     enrolled: 950000,
-    gradient: 'linear-gradient(135deg, #0ea5e9, #6366f1)'
+    gradient: 'linear-gradient(135deg, #0ea5e9, #6366f1)',
+    videoEmbedId: '30WNdJAMIkI' // Development video
   }
 ];

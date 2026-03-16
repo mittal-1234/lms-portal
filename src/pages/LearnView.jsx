@@ -2,12 +2,16 @@ import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { PlayCircle, CheckCircle, Circle, ChevronLeft, Menu } from 'lucide-react';
 import { useAppContext } from '../context/AppContext';
+import { mockCourses } from '../data/mockCourses';
 
 const LearnView = () => {
   const { id } = useParams();
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const { courseProgress, markModuleCompleted } = useAppContext();
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const course = mockCourses.find(c => c.id === id) || mockCourses[0];
+  const videoId = course.videoEmbedId || 'M7lc1UVf-VE';
 
   // Define modules
   const courseModules = [
@@ -140,7 +144,7 @@ const LearnView = () => {
             <iframe 
               width="100%" 
               height="100%" 
-              src="https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?autoplay=0&rel=0&modestbranding=1" 
+              src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=0&rel=0&modestbranding=1`} 
               title="YouTube video player" 
               style={{ display: 'block', border: 'none' }}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
