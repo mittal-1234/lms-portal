@@ -30,12 +30,12 @@ const LearnView = () => {
           </h2>
         </div>
 
-        <div style={{ padding: '1.5rem', flex: 1, overflowY: 'auto' }}>
-          <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: '500', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+        <div style={{ padding: '0 1.5rem', flex: 1, overflowY: 'auto' }}>
+          <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: '500', margin: '1.5rem 0 1rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
             Module 1: Getting Started
           </div>
           
-          <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+          <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', paddingBottom: '2rem' }}>
             {modules.map((mod, idx) => (
               <li key={idx}>
                 <button 
@@ -50,7 +50,8 @@ const LearnView = () => {
                     display: 'flex', 
                     gap: '1rem', 
                     cursor: 'pointer',
-                    transition: 'all var(--transition-fast)'
+                    transition: 'all var(--transition-fast)',
+                    boxSizing: 'border-box'
                   }}
                   onMouseEnter={(e) => {
                     if (!mod.active) e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
@@ -64,8 +65,8 @@ const LearnView = () => {
                      mod.active ? <PlayCircle size={18} color="hsl(var(--primary))" /> :
                      <Circle size={18} color="var(--text-secondary)" />}
                   </div>
-                  <div>
-                    <div style={{ fontSize: '0.95rem', fontWeight: mod.active ? '600' : '400', color: mod.active ? 'white' : 'var(--text-primary)', marginBottom: '0.25rem' }}>
+                  <div style={{ minWidth: 0, flex: 1 }}>
+                    <div style={{ fontSize: '0.95rem', fontWeight: mod.active ? '600' : '400', color: mod.active ? 'white' : 'var(--text-primary)', marginBottom: '0.25rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                       {mod.title}
                     </div>
                     <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
