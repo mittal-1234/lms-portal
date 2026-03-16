@@ -105,18 +105,19 @@ const LearnView = () => {
         {/* Video Player Area */}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0a0a0a', position: 'relative' }}>
           
-          {/* Placeholder for video player */}
-          <div style={{ width: '80%', maxWidth: '1000px', aspectRatio: '16/9', background: 'rgba(255,255,255,0.05)', borderRadius: '1rem', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)' }}>
-            <PlayCircle size={64} style={{ opacity: 0.5, marginBottom: '1rem' }} />
-            <div className="heading-md" style={{ color: 'var(--text-secondary)' }}>Deep Dive: Core Concepts</div>
-            <div style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginTop: '0.5rem' }}>1 hr 20 min</div>
-          </div>
-
-          {/* Player controls placeholder */}
-          <div style={{ position: 'absolute', bottom: '2rem', width: '80%', maxWidth: '1000px', height: '6px', background: 'rgba(255,255,255,0.2)', borderRadius: '3px' }}>
-            <div style={{ width: '35%', height: '100%', background: 'hsl(var(--primary))', borderRadius: '3px', position: 'relative' }}>
-              <div style={{ position: 'absolute', right: '-6px', top: '-4px', width: '14px', height: '14px', background: 'white', borderRadius: '50%', boxShadow: '0 0 10px rgba(0,0,0,0.5)' }}></div>
-            </div>
+          {/* Actual Embedded Video Player */}
+          <div style={{ width: '80%', maxWidth: '1000px', aspectRatio: '16/9', borderRadius: '1rem', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)', background: 'black' }}>
+            <iframe 
+              width="100%" 
+              height="100%" 
+              src="https://www.youtube.com/embed/S2kW2B8-9gE?si=HnK-H-Xm02V_5O2F&autoplay=0&rel=0&modestbranding=1" 
+              title="YouTube video player" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerPolicy="strict-origin-when-cross-origin" 
+              allowFullScreen
+              style={{ display: 'block' }}
+            ></iframe>
           </div>
         </div>
         
