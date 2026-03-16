@@ -21,7 +21,7 @@ const Navbar = () => {
             <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)))', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 'bold' }}>
               L
             </div>
-            <span className="heading-md" style={{ letterSpacing: '-0.02em', margin: 0 }}>Lumina</span>
+            <span className="heading-md" style={{ letterSpacing: '-0.02em', margin: 0 }}>SkillSphere</span>
           </Link>
           
           <div className="desktop-links" style={{ display: 'flex', gap: '1.5rem' }}>

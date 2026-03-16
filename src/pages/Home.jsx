@@ -61,7 +61,7 @@ const Home = () => {
       <section style={{ padding: '6rem 0', background: 'rgba(0,0,0,0.2)', borderTop: '1px solid var(--glass-border)', borderBottom: '1px solid var(--glass-border)', marginTop: '4rem' }}>
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto', marginBottom: '4rem' }}>
-            <h2 className="heading-lg">Why choose Lumina?</h2>
+            <h2 className="heading-lg">Why choose SkillSphere?</h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '3rem' }}>
             <div style={{ textAlign: 'center' }}>

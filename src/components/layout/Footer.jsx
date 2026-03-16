@@ -17,7 +17,7 @@ const Footer = () => {
               <div style={{ width: '24px', height: '24px', borderRadius: '6px', background: 'linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)))', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 'bold', fontSize: '0.8rem' }}>
                 L
               </div>
-              <span className="heading-md" style={{ fontSize: '1.25rem', margin: 0 }}>Lumina</span>
+              <span className="heading-md" style={{ fontSize: '1.25rem', margin: 0 }}>SkillSphere</span>
             </div>
             <p className="text-muted" style={{ fontSize: '0.9rem' }}>
               Empowering global learners with world-class education and beautiful experiences.
@@ -25,7 +25,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 style={{ marginBottom: '1rem', color: 'var(--text-primary)' }}>Lumina</h4>
+            <h4 style={{ marginBottom: '1rem', color: 'var(--text-primary)' }}>SkillSphere</h4>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <li><a href="#" className="text-muted" style={{ fontSize: '0.9rem' }}>About</a></li>
               <li><a href="#" className="text-muted" style={{ fontSize: '0.9rem' }}>Careers</a></li>
@@ -46,7 +46,7 @@ const Footer = () => {
         
         <div style={{ borderTop: '1px solid var(--glass-border)', paddingTop: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
           <p className="text-muted" style={{ fontSize: '0.85rem' }}>
-            &copy; {new Date().getFullYear()} Lumina Inc. All rights reserved.
+            &copy; {new Date().getFullYear()} SkillSphere Inc. All rights reserved.
           </p>
           <div style={{ display: 'flex', gap: '1rem' }}>
             <a href="#" className="text-muted" style={{ fontSize: '0.85rem' }}>Privacy</a>

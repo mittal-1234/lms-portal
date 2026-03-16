@@ -2,7 +2,7 @@ export const mockCourses = [
   {
     id: 'cs-101',
     title: 'Introduction to Computer Science',
-    provider: 'Lumina Tech',
+    provider: 'SkillSphere Tech',
     university: 'Harvard University',
     instructor: 'Dr. David Malan',
     category: 'Computer Science',
