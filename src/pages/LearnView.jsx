@@ -1,19 +1,39 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { PlayCircle, CheckCircle, Circle, ChevronLeft, Menu } from 'lucide-react';
+import { useAppContext } from '../context/AppContext';
 
 const LearnView = () => {
   const { id } = useParams();
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const { courseProgress, markModuleCompleted } = useAppContext();
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  // Mock modules
-  const modules = [
-    { title: 'Welcome and Orientation', duration: '15 min', completed: true, active: false },
-    { title: 'The Basics of the Subject', duration: '45 min', completed: true, active: false },
-    { title: 'Deep Dive: Core Concepts', duration: '1 hr 20 min', completed: false, active: true },
-    { title: 'Practical Application Exercise', duration: '45 min', completed: false, active: false },
-    { title: 'End of Week Assessment', duration: '30 min', completed: false, active: false },
+  // Define modules
+  const courseModules = [
+    { id: 'm1', title: 'Welcome and Orientation', duration: '15 min' },
+    { id: 'm2', title: 'The Basics of the Subject', duration: '45 min' },
+    { id: 'm3', title: 'Deep Dive: Core Concepts', duration: '1 hr 20 min' },
+    { id: 'm4', title: 'Practical Application Exercise', duration: '45 min' },
+    { id: 'm5', title: 'End of Week Assessment', duration: '30 min' },
   ];
+
+  const currentProgress = courseProgress[id] || {};
+  
+  const modules = courseModules.map((mod, index) => ({
+    ...mod,
+    completed: !!currentProgress[mod.id],
+    active: index === activeIndex
+  }));
+
+  const activeModule = modules[activeIndex];
+
+  const handleCompleteAndNext = () => {
+    markModuleCompleted(id, activeModule.id, true);
+    if (activeIndex < modules.length - 1) {
+      setActiveIndex(activeIndex + 1);
+    }
+  };
 
   return (
     <div style={{ display: 'flex', height: '100vh', width: '100vw', background: '#000', color: 'white' }} className="animate-fade-in">
@@ -39,6 +59,7 @@ const LearnView = () => {
             {modules.map((mod, idx) => (
               <li key={idx}>
                 <button 
+                  onClick={() => setActiveIndex(idx)}
                   style={{ 
                     width: '100%', 
                     textAlign: 'left', 
@@ -96,9 +117,18 @@ const LearnView = () => {
              <button style={{ background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)', padding: '0.5rem 1rem', borderRadius: '2rem', fontSize: '0.85rem', backdropFilter: 'blur(8px)', cursor: 'pointer' }}>
                Notes
              </button>
-             <Link to="/dashboard" style={{ background: 'linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)))', color: 'white', border: 'none', padding: '0.5rem 1rem', borderRadius: '2rem', fontSize: '0.85rem', fontWeight: '500', cursor: 'pointer', display: 'inline-block' }}>
-               Exit Lesson &rarr;
-             </Link>
+             {activeIndex < modules.length - 1 ? (
+               <button 
+                 onClick={handleCompleteAndNext}
+                 style={{ background: 'linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)))', color: 'white', border: 'none', padding: '0.5rem 1rem', borderRadius: '2rem', fontSize: '0.85rem', fontWeight: '500', cursor: 'pointer' }}
+               >
+                 Mark Complete & Next &rarr;
+               </button>
+             ) : (
+               <Link to="/dashboard" onClick={() => markModuleCompleted(id, activeModule.id, true)} style={{ background: 'linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)))', color: 'white', border: 'none', padding: '0.5rem 1rem', borderRadius: '2rem', fontSize: '0.85rem', fontWeight: '500', cursor: 'pointer', display: 'inline-block', textDecoration: 'none' }}>
+                 Finish & Exit Course &rarr;
+               </Link>
+             )}
           </div>
         </div>
 

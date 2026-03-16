@@ -1,9 +1,13 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { mockCourses } from '../data/mockCourses';
+import { useAppContext } from '../context/AppContext';
 
 const CourseDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const { enrollInCourse, isEnrolled } = useAppContext();
   const course = mockCourses.find(c => c.id === id) || mockCourses[0];
+  const enrolled = isEnrolled(course.id);
 
   return (
     <div className="animate-fade-in">
@@ -40,9 +44,22 @@ const CourseDetail = () => {
               </div>
               <div className="heading-lg" style={{ marginBottom: '1.5rem' }}>Free</div>
               
-              <Link to={`/learn/${course.id}`} className="btn btn-primary" style={{ width: '100%', padding: '1rem', marginBottom: '1rem', textAlign: 'center', display: 'block' }}>
-                Enroll & Start Learning
-              </Link>
+              {enrolled ? (
+                <Link to={`/learn/${course.id}`} className="btn btn-primary" style={{ width: '100%', padding: '1rem', marginBottom: '1rem', textAlign: 'center', display: 'block' }}>
+                  Continue Learning
+                </Link>
+              ) : (
+                <button 
+                  className="btn btn-primary" 
+                  style={{ width: '100%', padding: '1rem', marginBottom: '1rem', textAlign: 'center', display: 'block' }}
+                  onClick={() => {
+                    enrollInCourse(course.id);
+                    navigate(`/learn/${course.id}`);
+                  }}
+                >
+                  Enroll & Start Learning
+                </button>
+              )}
               
               <p className="text-muted" style={{ fontSize: '0.85rem', textAlign: 'center' }}>{course.enrolled.toLocaleString()} already enrolled</p>
               
