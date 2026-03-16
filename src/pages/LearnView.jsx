@@ -11,7 +11,7 @@ const LearnView = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const course = mockCourses.find(c => c.id === id) || mockCourses[0];
-  const videoId = course.videoEmbedId || 'M7lc1UVf-VE';
+  const videoUrl = course.videoUrl || 'https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4';
 
   // Define modules
   const courseModules = [
@@ -141,15 +141,17 @@ const LearnView = () => {
           
           {/* Actual Embedded Video Player */}
           <div style={{ width: '80%', maxWidth: '1000px', aspectRatio: '16/9', borderRadius: '1rem', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)', background: 'black' }}>
-            <iframe 
+            <video 
               width="100%" 
               height="100%" 
-              src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=0&rel=0&modestbranding=1`} 
-              title="YouTube video player" 
-              style={{ display: 'block', border: 'none' }}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              allowFullScreen
-            ></iframe>
+              controls
+              style={{ display: 'block', objectFit: 'cover' }}
+              poster={`https://picsum.photos/seed/${course.id}/1280/720`}
+              key={videoUrl}
+            >
+              <source src={videoUrl} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
         

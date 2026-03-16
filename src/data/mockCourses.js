@@ -11,7 +11,7 @@ export const mockCourses = [
     rating: 4.9,
     enrolled: 4500000,
     gradient: 'linear-gradient(135deg, #ef4444, #f97316)',
-    videoEmbedId: '8mAITcNt710' // Harvard CS50 Lecture 0 (Always embeddable)
+    videoUrl: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4'
   },
   {
     id: 'ml-first',
@@ -25,7 +25,7 @@ export const mockCourses = [
     rating: 4.8,
     enrolled: 1200000,
     gradient: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
-    videoEmbedId: 'jGwO_UgTS7I' // Stanford CS229 Lecture 1
+    videoUrl: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
   },
   {
     id: 'ux-design',
@@ -38,7 +38,7 @@ export const mockCourses = [
     rating: 4.8,
     enrolled: 850000,
     gradient: 'linear-gradient(135deg, #10b981, #3b82f6)',
-    videoEmbedId: 'v8y8F6m930E' // Google Chrome Developers
+    videoUrl: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4'
   },
   {
     id: 'quantum-computing',
@@ -51,7 +51,7 @@ export const mockCourses = [
     rating: 4.7,
     enrolled: 244932,
     gradient: 'linear-gradient(135deg, #a855f7, #ec4899)',
-    videoEmbedId: 'HtSuA80QTyo' // MIT 6.006 Intro to Algorithms
+    videoUrl: 'https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4'
   },
   {
     id: 'bus-strat',
@@ -65,7 +65,7 @@ export const mockCourses = [
     rating: 4.6,
     enrolled: 320000,
     gradient: 'linear-gradient(135deg, #f59e0b, #ef4444)',
-    videoEmbedId: 'CBYhVcO4WgI' // Y Combinator Startup Class
+    videoUrl: 'https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
   },
   {
     id: 'full-stack',
@@ -78,6 +78,6 @@ export const mockCourses = [
     rating: 4.7,
     enrolled: 950000,
     gradient: 'linear-gradient(135deg, #0ea5e9, #6366f1)',
-    videoEmbedId: 'hnVN0aD8-O0' // Harvard Web Programming
+    videoUrl: 'https://storage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4'
   }
 ];
