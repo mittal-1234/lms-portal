@@ -95,9 +95,9 @@ const LearnView = () => {
              <button style={{ background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)', padding: '0.5rem 1rem', borderRadius: '2rem', fontSize: '0.85rem', backdropFilter: 'blur(8px)', cursor: 'pointer' }}>
                Notes
              </button>
-             <button style={{ background: 'linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)))', color: 'white', border: 'none', padding: '0.5rem 1rem', borderRadius: '2rem', fontSize: '0.85rem', fontWeight: '500', cursor: 'pointer' }}>
-               Next Lesson &rarr;
-             </button>
+             <Link to="/dashboard" style={{ background: 'linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)))', color: 'white', border: 'none', padding: '0.5rem 1rem', borderRadius: '2rem', fontSize: '0.85rem', fontWeight: '500', cursor: 'pointer', display: 'inline-block' }}>
+               Exit Lesson &rarr;
+             </Link>
           </div>
         </div>
 

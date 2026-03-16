@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import CourseCard from '../components/ui/CourseCard';
 import { mockCourses } from '../data/mockCourses';
 
@@ -21,19 +22,19 @@ const Home = () => {
             </p>
             
             <div className="animate-slide-up stagger-3" style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-              <button className="btn btn-primary" style={{ padding: '1rem 2rem', fontSize: '1.1rem' }}>
+              <Link to="/catalog" className="btn btn-primary" style={{ padding: '1rem 2rem', fontSize: '1.1rem' }}>
                 Join for free
-              </button>
-              <button className="btn btn-glass" style={{ padding: '1rem 2rem', fontSize: '1.1rem' }}>
+              </Link>
+              <Link to="/catalog" className="btn btn-glass" style={{ padding: '1rem 2rem', fontSize: '1.1rem' }}>
                 Explore Courses
-              </button>
+              </Link>
             </div>
           </div>
         </div>
         
         {/* Decorative elements */}
-        <div style={{ position: 'absolute', top: '10%', right: '5%', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(168,85,247,0.15) 0%, transparent 70%)', borderRadius: '50%', filter: 'blur(40px)', zIndex: 1 }}></div>
-        <div style={{ position: 'absolute', bottom: '-10%', left: '10%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%)', borderRadius: '50%', filter: 'blur(50px)', zIndex: 1 }}></div>
+        <div style={{ position: 'absolute', top: '10%', right: '5%', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(168,85,247,0.15) 0%, transparent 70%)', borderRadius: '50%', filter: 'blur(40px)', zIndex: 1, pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', bottom: '-10%', left: '10%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%)', borderRadius: '50%', filter: 'blur(50px)', zIndex: 1, pointerEvents: 'none' }}></div>
       </section>
 
       {/* Featured Secton (Placeholder for now) */}
@@ -43,9 +44,9 @@ const Home = () => {
             <h2 className="heading-lg">Featured Courses</h2>
             <p className="text-muted" style={{ marginTop: '0.5rem' }}>Start your journey with our most popular programs</p>
           </div>
-          <a href="/catalog" style={{ color: 'hsl(var(--primary))', fontWeight: '500', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+          <Link to="/catalog" style={{ color: 'hsl(var(--primary))', fontWeight: '500', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
             View all &rarr;
-          </a>
+          </Link>
         </div>
         
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem' }}>

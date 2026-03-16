@@ -40,8 +40,8 @@ const CourseDetail = () => {
               </div>
               <div className="heading-lg" style={{ marginBottom: '1.5rem' }}>Free</div>
               
-              <Link to={`/learn/${course.id}`}>
-                <button className="btn btn-primary" style={{ width: '100%', padding: '1rem', marginBottom: '1rem' }}>Enroll & Start Learning</button>
+              <Link to={`/learn/${course.id}`} className="btn btn-primary" style={{ width: '100%', padding: '1rem', marginBottom: '1rem', textAlign: 'center', display: 'block' }}>
+                Enroll & Start Learning
               </Link>
               
               <p className="text-muted" style={{ fontSize: '0.85rem', textAlign: 'center' }}>{course.enrolled.toLocaleString()} already enrolled</p>
