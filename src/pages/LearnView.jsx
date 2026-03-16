@@ -110,13 +110,11 @@ const LearnView = () => {
             <iframe 
               width="100%" 
               height="100%" 
-              src="https://www.youtube.com/embed/S2kW2B8-9gE?si=HnK-H-Xm02V_5O2F&autoplay=0&rel=0&modestbranding=1" 
+              src="https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?autoplay=0&rel=0&modestbranding=1" 
               title="YouTube video player" 
-              frameBorder="0" 
+              style={{ display: 'block', border: 'none' }}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              referrerPolicy="strict-origin-when-cross-origin" 
               allowFullScreen
-              style={{ display: 'block' }}
             ></iframe>
           </div>
         </div>
