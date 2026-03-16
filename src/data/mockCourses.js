@@ -11,7 +11,7 @@ export const mockCourses = [
     rating: 4.9,
     enrolled: 4500000,
     gradient: 'linear-gradient(135deg, #ef4444, #f97316)',
-    videoEmbedId: 'zOjov-2OZ0E' // Intro to CS - FreeCodeCamp
+    videoEmbedId: '8mAITcNt710' // Harvard CS50 Lecture 0 (Always embeddable)
   },
   {
     id: 'ml-first',
@@ -25,7 +25,7 @@ export const mockCourses = [
     rating: 4.8,
     enrolled: 1200000,
     gradient: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
-    videoEmbedId: 'i_LwzRmA_08' // Machine Learning - FreeCodeCamp
+    videoEmbedId: 'jGwO_UgTS7I' // Stanford CS229 Lecture 1
   },
   {
     id: 'ux-design',
@@ -38,7 +38,7 @@ export const mockCourses = [
     rating: 4.8,
     enrolled: 850000,
     gradient: 'linear-gradient(135deg, #10b981, #3b82f6)',
-    videoEmbedId: 'c9Wg6Cb_YlU' // UX Design - FreeCodeCamp
+    videoEmbedId: 'v8y8F6m930E' // Google Chrome Developers
   },
   {
     id: 'quantum-computing',
@@ -51,7 +51,7 @@ export const mockCourses = [
     rating: 4.7,
     enrolled: 244932,
     gradient: 'linear-gradient(135deg, #a855f7, #ec4899)',
-    videoEmbedId: 'kWbE6pA_kP4' // Quantum Computing - FreeCodeCamp
+    videoEmbedId: 'HtSuA80QTyo' // MIT 6.006 Intro to Algorithms
   },
   {
     id: 'bus-strat',
@@ -65,7 +65,7 @@ export const mockCourses = [
     rating: 4.6,
     enrolled: 320000,
     gradient: 'linear-gradient(135deg, #f59e0b, #ef4444)',
-    videoEmbedId: 'xKEhhaQEq5Y' // Business Strategy
+    videoEmbedId: 'CBYhVcO4WgI' // Y Combinator Startup Class
   },
   {
     id: 'full-stack',
@@ -78,6 +78,6 @@ export const mockCourses = [
     rating: 4.7,
     enrolled: 950000,
     gradient: 'linear-gradient(135deg, #0ea5e9, #6366f1)',
-    videoEmbedId: 'nu_pCVPKzTk' // Full Stack - FreeCodeCamp
+    videoEmbedId: 'hnVN0aD8-O0' // Harvard Web Programming
   }
 ];
