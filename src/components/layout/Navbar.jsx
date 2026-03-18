@@ -44,13 +44,18 @@ const Navbar = () => {
               }
             }}
           >
-            <Search size={18} style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)' }} />
+            <button 
+              type="submit" 
+              style={{ position: 'absolute', left: '0.25rem', top: '50%', transform: 'translateY(-50%)', background: 'transparent', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', padding: '0.75rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+            >
+              <Search size={18} />
+            </button>
             <input 
               type="text" 
               placeholder="What do you want to learn?" 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              style={{ width: '100%', padding: '0.6rem 1rem 0.6rem 2.5rem', borderRadius: '2rem', border: '1px solid var(--glass-border)', background: 'rgba(0,0,0,0.2)', color: 'white', outline: 'none', transition: 'all var(--transition-fast)' }}
+              style={{ width: '100%', padding: '0.6rem 1rem 0.6rem 2.75rem', borderRadius: '2rem', border: '1px solid var(--glass-border)', background: 'rgba(0,0,0,0.2)', color: 'white', outline: 'none', transition: 'all var(--transition-fast)' }}
               onFocus={(e) => { e.target.style.borderColor = 'hsl(var(--primary))'; e.target.style.background = 'rgba(0,0,0,0.4)'; }}
               onBlur={(e) => { e.target.style.borderColor = 'var(--glass-border)'; e.target.style.background = 'rgba(0,0,0,0.2)'; }}
             />

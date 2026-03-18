@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 const Footer = () => {
   const location = useLocation();
@@ -27,9 +27,9 @@ const Footer = () => {
           <div>
             <h4 style={{ marginBottom: '1rem', color: 'var(--text-primary)' }}>SkillSphere</h4>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <li><a href="#" className="text-muted" style={{ fontSize: '0.9rem' }}>About</a></li>
-              <li><a href="#" className="text-muted" style={{ fontSize: '0.9rem' }}>Careers</a></li>
-              <li><a href="#" className="text-muted" style={{ fontSize: '0.9rem' }}>Blog</a></li>
+              <li><Link to="/about" className="text-muted" style={{ fontSize: '0.9rem', textDecoration: 'none' }}>About</Link></li>
+              <li><Link to="/careers" className="text-muted" style={{ fontSize: '0.9rem', textDecoration: 'none' }}>Careers</Link></li>
+              <li><Link to="/blog" className="text-muted" style={{ fontSize: '0.9rem', textDecoration: 'none' }}>Blog</Link></li>
             </ul>
           </div>
 
