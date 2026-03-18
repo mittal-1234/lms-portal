@@ -6,6 +6,7 @@ import Catalog from './pages/Catalog';
 import CourseDetail from './pages/CourseDetail';
 import Dashboard from './pages/Dashboard';
 import LearnView from './pages/LearnView';
+import { AboutPage, CareerPage, BlogPage } from './pages/InfoPages';
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
           <Route path="/course/:id" element={<CourseDetail />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/learn/:id" element={<LearnView />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/careers" element={<CareerPage />} />
+          <Route path="/blog" element={<BlogPage />} />
         </Routes>
       </main>
       <Footer />
