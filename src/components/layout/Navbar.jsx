@@ -87,14 +87,6 @@ const Navbar = () => {
         {/* Right: Actions */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', position: 'relative' }}>
           <button 
-            style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)', color: 'white', padding: '0.5rem 1.25rem', borderRadius: '0.75rem', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer', transition: 'all 0.2s' }}
-            onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}
-            onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.05)'}
-          >
-            Log In
-          </button>
-
-          <button 
             onClick={() => setShowNotifications(!showNotifications)}
             style={{ background: 'transparent', border: 'none', color: showNotifications ? 'white' : 'var(--text-secondary)', cursor: 'pointer', position: 'relative' }} 
             className="icon-btn"
