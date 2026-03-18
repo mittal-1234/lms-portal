@@ -1,3 +1,4 @@
+import { useState, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import CourseCard from '../components/ui/CourseCard';
 import { mockCourses } from '../data/mockCourses';
@@ -5,17 +6,34 @@ import { mockCourses } from '../data/mockCourses';
 const Catalog = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get('q') || '';
+  const [selectedCategories, setSelectedCategories] = useState([]);
 
-  // Filter courses based on search query
-  const filteredCourses = mockCourses.filter(course => {
-    if (!query) return true;
-    const lowerQuery = query.toLowerCase();
-    return (
-      course.title.toLowerCase().includes(lowerQuery) ||
-      course.category.toLowerCase().includes(lowerQuery) ||
-      course.instructor.toLowerCase().includes(lowerQuery)
+  // Extract all unique categories from mock data
+  const categories = useMemo(() => {
+    return Array.from(new Set(mockCourses.map(c => c.category))).sort();
+  }, []);
+
+  const handleCategoryToggle = (category) => {
+    setSelectedCategories(prev => 
+      prev.includes(category) 
+        ? prev.filter(c => c !== category) 
+        : [...prev, category]
     );
-  });
+  };
+
+  // Filter courses based on search query AND categories
+  const filteredCourses = useMemo(() => {
+    return mockCourses.filter(course => {
+      const matchesSearch = !query || 
+        course.title.toLowerCase().includes(query.toLowerCase()) ||
+        course.instructor.toLowerCase().includes(query.toLowerCase());
+      
+      const matchesCategory = selectedCategories.length === 0 || 
+        selectedCategories.includes(course.category);
+        
+      return matchesSearch && matchesCategory;
+    });
+  }, [query, selectedCategories]);
 
   return (
     <div className="container animate-fade-in" style={{ padding: '3rem 1.5rem' }}>
@@ -27,14 +45,30 @@ const Catalog = () => {
           <h3 className="heading-md" style={{ marginBottom: '1.5rem', fontSize: '1.2rem' }}>Filters</h3>
           {/* Add filter controls here */}
           <div style={{ marginBottom: '1.5rem' }}>
-            <h4 style={{ marginBottom: '0.75rem', fontWeight: '500', color: 'var(--text-secondary)' }}>Category</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-               <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}><input type="checkbox" /> Computer Science</label>
-               <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}><input type="checkbox" /> Data Science</label>
-               <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}><input type="checkbox" /> Business</label>
-               <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}><input type="checkbox" /> Design</label>
+            <h4 style={{ marginBottom: '1rem', fontWeight: '500', color: 'var(--text-secondary)', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Category</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+               {categories.map(cat => (
+                 <label key={cat} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer', fontSize: '0.95rem', color: selectedCategories.includes(cat) ? 'white' : 'var(--text-secondary)', transition: 'color 0.2s' }}>
+                   <input 
+                     type="checkbox" 
+                     checked={selectedCategories.includes(cat)}
+                     onChange={() => handleCategoryToggle(cat)}
+                     style={{ width: '16px', height: '16px', accentColor: 'hsl(var(--primary))' }} 
+                   /> 
+                   {cat}
+                 </label>
+               ))}
             </div>
           </div>
+          
+          {selectedCategories.length > 0 && (
+            <button 
+              onClick={() => setSelectedCategories([])}
+              style={{ background: 'none', border: 'none', color: 'hsl(var(--primary))', fontSize: '0.85rem', cursor: 'pointer', padding: 0, fontWeight: '500' }}
+            >
+              Clear filters
+            </button>
+          )}
         </aside>
         
         <div>

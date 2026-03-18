@@ -7,6 +7,7 @@ import CourseDetail from './pages/CourseDetail';
 import Dashboard from './pages/Dashboard';
 import LearnView from './pages/LearnView';
 import { AboutPage, CareerPage, BlogPage } from './pages/InfoPages';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/careers" element={<CareerPage />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </main>
       <Footer />

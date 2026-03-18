@@ -1,15 +1,32 @@
+import { useState } from 'react';
 import { useAppContext } from '../context/AppContext';
 import { Link } from 'react-router-dom';
+import { BookOpen, Award, Clock } from 'lucide-react';
 
 const Dashboard = () => {
   const { enrolledCourses, courseProgress } = useAppContext();
+  const [activeTab, setActiveTab] = useState('active');
 
   const getProgress = (courseId) => {
     const progress = courseProgress[courseId] || {};
     const completedCount = Object.values(progress).filter(Boolean).length;
-    // Assuming 5 modules per course for exactly how LearnView defines it
     return Math.min(Math.round((completedCount / 5) * 100), 100);
   };
+
+  const activeCourses = enrolledCourses.filter(c => getProgress(c.id) < 100);
+  const completedCourses = enrolledCourses.filter(c => getProgress(c.id) === 100);
+
+  const StatCard = ({ icon, label, value, color }) => (
+    <div className="glass" style={{ padding: '1.5rem', borderRadius: '1rem', display: 'flex', alignItems: 'center', gap: '1rem', border: '1px solid var(--glass-border)' }}>
+      <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: `${color}15`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: color }}>
+        {icon}
+      </div>
+      <div>
+        <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{value}</div>
+        <div className="text-muted" style={{ fontSize: '0.85rem' }}>{label}</div>
+      </div>
+    </div>
+  );
 
   return (
     <div className="container animate-fade-in" style={{ padding: '3rem 1.5rem' }}>
@@ -23,18 +40,51 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <h2 className="heading-md" style={{ marginBottom: '1.5rem' }}>In Progress ({enrolledCourses.length})</h2>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
+        <StatCard icon={<BookOpen size={24} />} label="Enrolled" value={enrolledCourses.length} color="hsl(var(--primary))" />
+        <StatCard icon={<Clock size={24} />} label="In Progress" value={activeCourses.length} color="hsl(30, 90%, 60%)" />
+        <StatCard icon={<Award size={24} />} label="Completed" value={completedCourses.length} color="hsl(140, 70%, 50%)" />
+      </div>
+
+      <div style={{ display: 'flex', gap: '2rem', borderBottom: '1px solid var(--glass-border)', marginBottom: '2rem' }}>
+        {[
+          { id: 'active', label: `In Progress (${activeCourses.length})` },
+          { id: 'completed', label: `Completed (${completedCourses.length})` }
+        ].map(tab => (
+          <button 
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            style={{ 
+              padding: '0.75rem 0', 
+              background: 'none', 
+              border: 'none', 
+              color: activeTab === tab.id ? 'hsl(var(--primary))' : 'var(--text-secondary)',
+              fontWeight: '600',
+              cursor: 'pointer',
+              position: 'relative',
+              transition: 'color 0.2s'
+            }}
+          >
+            {tab.label}
+            {activeTab === tab.id && (
+              <div style={{ position: 'absolute', bottom: '-1px', left: 0, right: 0, height: '2px', background: 'hsl(var(--primary))' }}></div>
+            )}
+          </button>
+        ))}
+      </div>
       
-      {enrolledCourses.length === 0 ? (
+      {(activeTab === 'active' ? activeCourses : completedCourses).length === 0 ? (
         <div style={{ textAlign: 'center', padding: '4rem 1rem', background: 'rgba(255,255,255,0.02)', borderRadius: '1rem', border: '1px dashed var(--glass-border)', marginBottom: '4rem' }}>
-          <p className="text-muted" style={{ marginBottom: '1.5rem' }}>You haven't enrolled in any courses yet.</p>
+          <p className="text-muted" style={{ marginBottom: '1.5rem' }}>
+            {activeTab === 'active' ? "You don't have any courses in progress." : "You haven't completed any courses yet."}
+          </p>
           <Link to="/catalog" className="btn btn-primary" style={{ display: 'inline-block', padding: '0.75rem 1.5rem' }}>
             Browse Catalog
           </Link>
         </div>
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: '2rem', marginBottom: '4rem' }}>
-          {enrolledCourses.map((course) => (
+          {(activeTab === 'active' ? activeCourses : completedCourses).map((course) => (
             <Link to={`/learn/${course.id}`} key={course.id} className="glass-card" style={{ padding: '0', overflow: 'hidden', display: 'flex', flexDirection: 'column', textDecoration: 'none' }}>
               <div style={{ height: '140px', background: course.gradient, opacity: 0.9 }}></div>
               <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
@@ -43,11 +93,11 @@ const Dashboard = () => {
                 
                 <div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>
-                    <span>Course Progress</span>
+                    <span>{activeTab === 'active' ? 'Course Progress' : 'Course Completed'}</span>
                     <span>{getProgress(course.id)}%</span>
                   </div>
                   <div style={{ height: '6px', background: 'rgba(255,255,255,0.1)', borderRadius: '3px', overflow: 'hidden' }}>
-                    <div style={{ width: `${getProgress(course.id)}%`, height: '100%', background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)))', borderRadius: '3px', transition: 'width 0.5s ease-out' }}></div>
+                    <div style={{ width: `${getProgress(course.id)}%`, height: '100%', background: activeTab === 'active' ? 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)))' : 'hsl(140, 70%, 50%)', borderRadius: '3px', transition: 'width 0.5s ease-out' }}></div>
                   </div>
                 </div>
               </div>
@@ -55,9 +105,6 @@ const Dashboard = () => {
           ))}
         </div>
       )}
-
-      <h2 className="heading-md" style={{ marginBottom: '1.5rem' }}>Saved Courses</h2>
-      <p className="text-muted">You haven't saved any courses yet.</p>
     </div>
   );
 };
