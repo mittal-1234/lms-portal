@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { FileText, ArrowRight } from 'lucide-react';
 import CourseCard from '../components/ui/CourseCard';
 import { mockCourses } from '../data/mockCourses';
 import { useAppContext } from '../context/AppContext';
@@ -98,8 +99,48 @@ const Home = () => {
         </div>
       </section>
       
+      {/* Career Tools / Resume Builder Section */}
+      <section style={{ padding: '6rem 0', background: 'linear-gradient(180deg, transparent 0%, rgba(59,130,246,0.05) 50%, transparent 100%)' }}>
+        <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
+          <div className="animate-slide-up">
+            <h2 className="heading-lg" style={{ marginBottom: '1.5rem' }}>Land your dream job with <span className="text-gradient">Professional Tools</span></h2>
+            <p className="text-muted" style={{ fontSize: '1.1rem', marginBottom: '2.5rem', lineHeight: 1.6 }}>
+              Learning is only half the journey. Use our AI-powered Resume Builder to create a stunning professional profile that highlights your SkillSphere certifications and grabs recruiters' attention.
+            </p>
+            <div style={{ display: 'flex', gap: '1.5rem' }}>
+              <a href="#" className="btn btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 2rem' }}>
+                <FileText size={20} /> Build My Resume
+              </a>
+              <Link to="/careers" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'white', textDecoration: 'none', fontWeight: '500' }}>
+                Explore Careers <ArrowRight size={18} />
+              </Link>
+            </div>
+          </div>
+          
+          <div className="glass animate-slide-up" style={{ padding: '2rem', borderRadius: '1.5rem', border: '1px solid var(--glass-border)', position: 'relative', overflow: 'hidden' }}>
+            <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '200px', height: '200px', background: 'rgba(59,130,246,0.1)', filter: 'blur(50px)', borderRadius: '50%' }}></div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <div style={{ background: 'rgba(255,255,255,0.03)', padding: '1.25rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
+                <div style={{ width: '40px', height: '40px', background: 'rgba(59,130,246,0.1)', borderRadius: '8px', marginBottom: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'hsl(var(--primary))' }}>
+                  <FileText size={20} />
+                </div>
+                <h4 style={{ fontWeight: '600', marginBottom: '0.5rem' }}>AI Content Generation</h4>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Automatically transform your course projects into high-impact bullet points.</p>
+              </div>
+              <div style={{ background: 'rgba(255,255,255,0.03)', padding: '1.25rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }}>
+                <div style={{ width: '40px', height: '40px', background: 'rgba(168,85,247,0.1)', borderRadius: '8px', marginBottom: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'hsl(var(--accent))' }}>
+                  <FileText size={20} />
+                </div>
+                <h4 style={{ fontWeight: '600', marginBottom: '0.5rem' }}>ATS-Friendly Templates</h4>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Choose from dozens of premium templates designed to bypass screening systems.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Value Proposition */}
-      <section style={{ padding: '6rem 0', background: 'rgba(0,0,0,0.2)', borderTop: '1px solid var(--glass-border)', borderBottom: '1px solid var(--glass-border)', marginTop: '4rem' }}>
+      <section style={{ padding: '6rem 0', background: 'rgba(0,0,0,0.2)', borderTop: '1px solid var(--glass-border)', borderBottom: '1px solid var(--glass-border)', marginTop: '0' }}>
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto', marginBottom: '4rem' }}>
             <h2 className="heading-lg">Why choose SkillSphere?</h2>

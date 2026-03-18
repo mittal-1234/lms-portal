@@ -48,14 +48,15 @@ const Navbar = () => {
             <span className="heading-md" style={{ letterSpacing: '-0.02em', margin: 0 }}>SkillSphere</span>
           </Link>
           
-          <div className="desktop-links" style={{ display: 'flex', gap: '1.5rem' }}>
-            <Link to="/catalog" style={{ color: location.pathname === '/catalog' ? 'var(--text-primary)' : 'var(--text-secondary)' }}>Explore</Link>
-            <Link to="/dashboard" style={{ color: location.pathname === '/dashboard' ? 'var(--text-primary)' : 'var(--text-secondary)' }}>My Learning</Link>
+          <div className="desktop-links" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+            <Link to="/catalog" style={{ color: location.pathname === '/catalog' ? 'var(--text-primary)' : 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.95rem', fontWeight: '500' }}>Explore</Link>
+            <Link to="/dashboard" style={{ color: location.pathname === '/dashboard' ? 'var(--text-primary)' : 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.95rem', fontWeight: '500' }}>My Learning</Link>
+            <a href="#" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.95rem', fontWeight: '500' }}>Resume Builder</a>
           </div>
         </div>
 
         {/* Center: Search (Desktop) */}
-        <div className="desktop-search" style={{ flex: 1, maxWidth: '400px', margin: '0 2rem' }}>
+        <div className="desktop-search" style={{ flex: 1, maxWidth: '400px', margin: '0 1rem' }}>
           <form 
             style={{ position: 'relative' }}
             onSubmit={(e) => {
@@ -84,7 +85,15 @@ const Navbar = () => {
         </div>
 
         {/* Right: Actions */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', position: 'relative' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', position: 'relative' }}>
+          <button 
+            style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)', color: 'white', padding: '0.5rem 1.25rem', borderRadius: '0.75rem', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer', transition: 'all 0.2s' }}
+            onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}
+            onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.05)'}
+          >
+            Log In
+          </button>
+
           <button 
             onClick={() => setShowNotifications(!showNotifications)}
             style={{ background: 'transparent', border: 'none', color: showNotifications ? 'white' : 'var(--text-secondary)', cursor: 'pointer', position: 'relative' }} 
