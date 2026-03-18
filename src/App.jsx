@@ -9,6 +9,7 @@ import LearnView from './pages/LearnView';
 import { AboutPage, CareerPage, BlogPage } from './pages/InfoPages';
 import Profile from './pages/Profile';
 import ResumeBuilder from './pages/ResumeBuilder';
+import CertificateView from './pages/CertificateView';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/resume-builder" element={<ResumeBuilder />} />
+          <Route path="/certificate/:id" element={<CertificateView />} />
         </Routes>
       </main>
       <Footer />

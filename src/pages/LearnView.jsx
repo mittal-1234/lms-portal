@@ -121,7 +121,14 @@ const LearnView = () => {
              <button style={{ background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)', padding: '0.5rem 1rem', borderRadius: '2rem', fontSize: '0.85rem', backdropFilter: 'blur(8px)', cursor: 'pointer' }}>
                Notes
              </button>
-             {activeIndex < modules.length - 1 ? (
+             {modules.every(m => m.completed) ? (
+               <Link 
+                 to={`/certificate/${id}`}
+                 style={{ background: 'linear-gradient(135deg, #fbbf24, #f59e0b)', color: '#000', border: 'none', padding: '0.5rem 1.5rem', borderRadius: '2rem', fontSize: '0.85rem', fontWeight: '600', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', boxShadow: '0 0 20px rgba(251,191,36,0.3)' }}
+               >
+                 🏆 Claim Certificate
+               </Link>
+             ) : activeIndex < modules.length - 1 ? (
                <button 
                  onClick={handleCompleteAndNext}
                  style={{ background: 'linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)))', color: 'white', border: 'none', padding: '0.5rem 1rem', borderRadius: '2rem', fontSize: '0.85rem', fontWeight: '500', cursor: 'pointer' }}

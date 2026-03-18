@@ -85,13 +85,13 @@ const Dashboard = () => {
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: '2rem', marginBottom: '4rem' }}>
           {(activeTab === 'active' ? activeCourses : completedCourses).map((course) => (
-            <Link to={`/learn/${course.id}`} key={course.id} className="glass-card" style={{ padding: '0', overflow: 'hidden', display: 'flex', flexDirection: 'column', textDecoration: 'none' }}>
+            <div key={course.id} className="glass-card animate-slide-up" style={{ padding: '0', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
               <div style={{ height: '140px', background: course.gradient, opacity: 0.9 }}></div>
               <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
                 <div style={{ color: 'hsl(var(--primary))', fontSize: '0.85rem', fontWeight: '500', marginBottom: '0.5rem' }}>{course.category}</div>
                 <h3 style={{ fontWeight: '600', fontSize: '1.1rem', marginBottom: '1.5rem', flex: 1, color: 'var(--text-primary)' }}>{course.title}</h3>
                 
-                <div>
+                <div style={{ marginBottom: '1.5rem' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>
                     <span>{activeTab === 'active' ? 'Course Progress' : 'Course Completed'}</span>
                     <span>{getProgress(course.id)}%</span>
@@ -100,8 +100,19 @@ const Dashboard = () => {
                     <div style={{ width: `${getProgress(course.id)}%`, height: '100%', background: activeTab === 'active' ? 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)))' : 'hsl(140, 70%, 50%)', borderRadius: '3px', transition: 'width 0.5s ease-out' }}></div>
                   </div>
                 </div>
+
+                <div style={{ display: 'flex', gap: '1rem' }}>
+                  <Link to={`/learn/${course.id}`} className="btn" style={{ flex: 1, padding: '0.6rem', textAlign: 'center', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)', color: 'white', borderRadius: '0.5rem', fontSize: '0.85rem', textDecoration: 'none' }}>
+                    {activeTab === 'active' ? 'Continue' : 'Review'}
+                  </Link>
+                  {activeTab === 'completed' && (
+                    <Link to={`/certificate/${course.id}`} className="btn btn-primary" style={{ flex: 1, padding: '0.6rem', textAlign: 'center', fontSize: '0.85rem', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}>
+                      <Award size={16} /> Certificate
+                    </Link>
+                  )}
+                </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       )}

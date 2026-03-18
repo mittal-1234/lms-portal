@@ -76,6 +76,9 @@ const CourseDetail = () => {
                 <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '0.95rem' }}>
                   <span style={{ color: 'hsl(var(--primary))' }}>✓</span> Approx. {course.duration} to complete
                 </li>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '0.95rem', background: 'rgba(255,193,7,0.1)', padding: '0.5rem', borderRadius: '0.4rem', border: '1px solid rgba(255,193,7,0.2)' }}>
+                  <span style={{ color: '#ffc107' }}>🏆</span> Shareable Certificate provided upon completion
+                </li>
               </ul>
             </div>
 
