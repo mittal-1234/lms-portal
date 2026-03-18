@@ -108,9 +108,9 @@ const Home = () => {
               Learning is only half the journey. Use our AI-powered Resume Builder to create a stunning professional profile that highlights your SkillSphere certifications and grabs recruiters' attention.
             </p>
             <div style={{ display: 'flex', gap: '1.5rem' }}>
-              <a href="#" className="btn btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 2rem' }}>
+              <Link to="/resume-builder" className="btn btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 2rem' }}>
                 <FileText size={20} /> Build My Resume
-              </a>
+              </Link>
               <Link to="/careers" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'white', textDecoration: 'none', fontWeight: '500' }}>
                 Explore Careers <ArrowRight size={18} />
               </Link>

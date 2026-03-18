@@ -51,7 +51,7 @@ const Navbar = () => {
           <div className="desktop-links" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
             <Link to="/catalog" style={{ color: location.pathname === '/catalog' ? 'var(--text-primary)' : 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.95rem', fontWeight: '500' }}>Explore</Link>
             <Link to="/dashboard" style={{ color: location.pathname === '/dashboard' ? 'var(--text-primary)' : 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.95rem', fontWeight: '500' }}>My Learning</Link>
-            <a href="#" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.95rem', fontWeight: '500' }}>Resume Builder</a>
+            <Link to="/resume-builder" style={{ color: location.pathname === '/resume-builder' ? 'var(--text-primary)' : 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.95rem', fontWeight: '500' }}>Resume Builder</Link>
           </div>
         </div>
 
