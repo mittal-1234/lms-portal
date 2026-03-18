@@ -1,5 +1,5 @@
 import { useAppContext } from '../context/AppContext';
-import { Award, BookOpen, CheckCircle, Clock, Shield, Star, Mail, MapPin, Rocket } from 'lucide-react';
+import { Award, BookOpen, CheckCircle, Clock, Shield, Star, Mail, MapPin, Rocket, LogOut } from 'lucide-react';
 
 const Profile = () => {
   const { enrolledCourses, courseProgress } = useAppContext();
@@ -41,6 +41,22 @@ const Profile = () => {
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
                 <Shield size={16} /> ID Verified
               </div>
+            </div>
+
+            <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              <button 
+                className="btn btn-primary" 
+                style={{ width: '100%', padding: '0.75rem', fontSize: '0.9rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}
+              >
+                Log In
+              </button>
+              <button 
+                style={{ width: '100%', padding: '0.75rem', fontSize: '0.9rem', background: 'rgba(239, 68, 68, 0.1)', border: '1px solid rgba(239, 68, 68, 0.2)', color: '#ef4444', borderRadius: '0.75rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', fontWeight: '600', transition: 'all 0.2s' }}
+                onMouseEnter={e => e.currentTarget.style.background = 'rgba(239, 68, 68, 0.2)'}
+                onMouseLeave={e => e.currentTarget.style.background = 'rgba(239, 68, 68, 0.1)'}
+              >
+                <LogOut size={18} /> Log Out
+              </button>
             </div>
           </div>
         </aside>
