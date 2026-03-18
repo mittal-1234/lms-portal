@@ -1,5 +1,5 @@
 import { useAppContext } from '../context/AppContext';
-import { Award, BookOpen, CheckCircle, Clock, Shield, Star, Mail, MapPin } from 'lucide-react';
+import { Award, BookOpen, CheckCircle, Clock, Shield, Star, Mail, MapPin, Rocket } from 'lucide-react';
 
 const Profile = () => {
   const { enrolledCourses, courseProgress } = useAppContext();
