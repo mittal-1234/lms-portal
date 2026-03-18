@@ -91,8 +91,8 @@ const Home = () => {
         </div>
         
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem' }}>
-           {mockCourses.slice(0, 3).map(course => (
-             <div key={course.id} className="animate-slide-up" style={{ animationDelay: '200ms', opacity: 0 }}>
+           {mockCourses.slice(0, 6).map(course => (
+             <div key={course.id} className="animate-slide-up" style={{ animationDelay: '200ms', opacity: 1 }}>
                <CourseCard course={course} />
              </div>
            ))}

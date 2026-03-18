@@ -26,7 +26,9 @@ const Catalog = () => {
     return mockCourses.filter(course => {
       const matchesSearch = !query || 
         course.title.toLowerCase().includes(query.toLowerCase()) ||
-        course.instructor.toLowerCase().includes(query.toLowerCase());
+        course.instructor.toLowerCase().includes(query.toLowerCase()) ||
+        (course.university && course.university.toLowerCase().includes(query.toLowerCase())) ||
+        (course.provider && course.provider.toLowerCase().includes(query.toLowerCase()));
       
       const matchesCategory = selectedCategories.length === 0 || 
         selectedCategories.includes(course.category);
