@@ -11,7 +11,7 @@ const LearnView = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const course = mockCourses.find(c => c.id === id) || mockCourses[0];
-  const videoUrl = course.videoUrl || 'https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4';
+  const videoUrl = course.videoUrl || '3LPJfIKxwWc';
 
   // Define modules
   const courseModules = [
@@ -148,17 +148,30 @@ const LearnView = () => {
           
           {/* Actual Embedded Video Player */}
           <div style={{ width: '80%', maxWidth: '1000px', aspectRatio: '16/9', borderRadius: '1rem', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)', background: 'black' }}>
-            <video 
-              width="100%" 
-              height="100%" 
-              controls
-              style={{ display: 'block', objectFit: 'cover' }}
-              poster={`https://picsum.photos/seed/${course.id}/1280/720`}
-              key={videoUrl}
-            >
-              <source src={videoUrl} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            {videoUrl.length === 11 || videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be') ? (
+              <iframe
+                width="100%"
+                height="100%"
+                src={`https://www.youtube-nocookie.com/embed/${videoUrl.includes('v=') ? videoUrl.split('v=')[1].split('&')[0] : videoUrl}?origin=${window.location.origin}&rel=0`}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                style={{ border: 'none' }}
+              ></iframe>
+            ) : (
+              <video 
+                width="100%" 
+                height="100%" 
+                controls
+                style={{ display: 'block', objectFit: 'cover' }}
+                poster={`https://picsum.photos/seed/${course.id}/1280/720`}
+                key={videoUrl}
+              >
+                <source src={videoUrl} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            )}
           </div>
         </div>
         
